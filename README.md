@@ -19,4 +19,5 @@ A multi-app Django project containerized with Docker and automated with Jenkins 
 
 bash
 git clone https://github.com/SRCEM-AIM-Class-A/django_docker10.git
-cd Hello
+
+
