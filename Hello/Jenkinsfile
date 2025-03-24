@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        IMAGE_NAME = "ankitkolhe10/django_docker10"
+        IMAGE_NAME = "ankitkolhe10/django_docker10:latest"
         
     }
 
