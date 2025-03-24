@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         IMAGE_NAME = "ankitkolhe10/django_docker10:latest"
-        
+        DOCKER_HOST = "unix:///var/run/docker.sock"
     }
 
     stages {
