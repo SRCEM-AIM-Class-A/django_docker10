@@ -17,21 +17,17 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 script {
-                    def dockerImage = docker.build("${env.IMAGE_NAME}", "-f Dockerfile .")
+                    sh "docker build -t ${IMAGE_NAME} ."
                 }
             }
         }
 
         
         stage('Push Docker Image') {
-            steps {
-                script {
-                    docker.withRegistry('https://index.docker.io/v1/', 'docker-ankitkolhe10') {
-                        def dockerImage = docker.image("${env.IMAGE_NAME}")
-                        dockerImage.push()
-                    }
+             steps {
+                withDockerRegistry([credentialsId: 'docker-ankitkolhe10', url: 'https://index.docker.io/v1/']) {
+                    sh "docker push ${IMAGE_NAME}"
                 }
-            }
         }
 
     }
